@@ -5,7 +5,7 @@ I am using `trust-model tofu+pgp` with gpg2 with mutt. While the mode itself is 
 
 
 # Usage
-Put something like
+Just `git clone` and put something like
 ```
 set display_filter="/full/path/to/mutt_gpg_display_filter/filter.py"
 ```
