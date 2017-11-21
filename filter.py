@@ -27,9 +27,22 @@ def shorten_tofu_blocks(input):
     return re.sub(pattern, replace, input)
 
 
+def remove_aka_list(input):
+    pattern = r"gpg:[ \t]+aka [^\n]*\n"
+    replace = ""
+    return re.sub(pattern, replace, input)
+
+def shorten_untrusted_warning(input):
+    pattern = r"(?s)gpg: WARNING: This key is not certified with sufficiently trusted signatures!.*Subkey fingerprint: [^\n]"
+    replace = "gpg: WARNING: untrusted signature"
+    return re.sub(pattern, replace, input)
+
+
 def main():
     input = sys.stdin.read()
     input = shorten_tofu_blocks(input)
+    input = remove_aka_list(input)
+    input = shorten_untrusted_warning(input)
     sys.stdout.write(input)
 
 
