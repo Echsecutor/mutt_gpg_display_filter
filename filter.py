@@ -32,8 +32,9 @@ def remove_aka_list(input):
     replace = ""
     return re.sub(pattern, replace, input)
 
+
 def shorten_untrusted_warning(input):
-    pattern = r"(?s)gpg: WARNING: This key is not certified with sufficiently trusted signatures!.*Subkey fingerprint: [^\n]+"
+    pattern = r"(?s)gpg: WARNING: This key is not certified with sufficiently trusted signatures!.*key fingerprint: [^\n]+"
     replace = "gpg: WARNING: untrusted signature"
     return re.sub(pattern, replace, input)
 
