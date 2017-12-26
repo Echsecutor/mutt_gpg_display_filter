@@ -22,7 +22,7 @@ import sys
 
 
 def shorten_tofu_blocks(input):
-    pattern = r"(?s)gpg: Verified ([0-9]+) .*bad\."
+    pattern = r"(?s)gpg: Verified ([0-9]+) .*(ago|as being bad)\."
     replace = r"gpg: TOFU \1"
     return re.sub(pattern, replace, input)
 
